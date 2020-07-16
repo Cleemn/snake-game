@@ -20,29 +20,38 @@ function drawGameSpace() {
 }
 
 function startGame() {
-  snake = new Snake(10, 20);
   drawGameSpace();
+  snake = new Snake(20, 20, 'red', 10, 20);
   snake.update();
+  setInterval(() => {
+    food = new Food();
+    food.update();
+    console.log('food', food);
+  }, 4000);
 }
 
 document.onkeydown = function (e) {
   switch (e.keyCode) {
     case 37:
+      snake.clear();
       snake.moveLeft();
       snake.update();
       console.log('left', snake);
       break;
     case 39:
+      snake.clear();
       snake.moveRight();
       snake.update();
       console.log('right', snake);
       break;
     case 38:
+      snake.clear();
       snake.moveUp();
       snake.update();
       console.log('up', snake);
       break;
     case 40:
+      snake.clear();
       snake.moveDown();
       snake.update();
       console.log('down', snake);

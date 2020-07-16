@@ -1,7 +1,8 @@
 class Snake {
-  constructor (x, y) {
-    this.width = 20;
-    this.height = 20;
+  constructor (width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.color = color;
     this.x = x;
     this.y = y;
   }
@@ -10,20 +11,24 @@ class Snake {
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 
+  clear() {
+    ctx.clearRect(this.x, this.y, this.width, this.height);
+  }
+
   moveLeft() {
     // TODO
-    this.x -= 20;
+    this.x -= 10;
   }
   moveRight() {
     // TODO
-    this.x += 20;
+    this.x += 10;
   }
 
   moveUp() {
-    this.y -= 20;
+    this.y -= 10;
   }
 
   moveDown() {
-    this.y += 20;
+    this.y += 10;
   }
 }
