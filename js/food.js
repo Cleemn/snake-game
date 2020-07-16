@@ -1,5 +1,5 @@
-function chooseRandomPosition(from, to) {
-  return Math.floor(Math.random() * (from - to + 1) + to);
+function chooseRandomPosition(min, max) {
+  return Math.round((Math.random()*(max-min)+min)/10)*10;
 }
 
 class Food {
@@ -7,11 +7,12 @@ class Food {
     this.width = 20;
     this.height = 20;
     this.color = 'red';
-    this.x = chooseRandomPosition(20, 780);
-    this.y = chooseRandomPosition(20, 780);
+    this.x = chooseRandomPosition(20, 680);
+    this.y = chooseRandomPosition(20, 680);
   }
 
-  update() {
+  draw() {
+    ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }

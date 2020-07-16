@@ -21,13 +21,13 @@ function drawGameSpace() {
 
 function startGame() {
   drawGameSpace();
-  snake = new Snake(20, 20, 'red', 10, 20);
+  snake = new Snake(20, 20, 10, 20);
   snake.update();
   setInterval(() => {
     food = new Food();
-    food.update();
+    food.draw();
     console.log('food', food);
-  }, 4000);
+  }, 10000);
 }
 
 document.onkeydown = function (e) {
