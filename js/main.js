@@ -28,19 +28,16 @@ function getFat() {
 
   if (eat) {
     snake.width += 10;
-    food.clear();
     bucket.splice(food);
+    food = new Food();
+    bucket.push(food);
+    food.draw();
   }
 }
 
 function updateGameArea() {
-  snake.update();
-  setInterval(() => {
-    food = new Food();
-    bucket.push(food);
-    food.draw();
-  }, 2000);
   getFat();
+  snake.update();
 }
 
 document.onkeydown = function (e) {
@@ -48,22 +45,22 @@ document.onkeydown = function (e) {
     case 37:
       snake.clear();
       snake.moveLeft();
-      snake.update();
+      updateGameArea();
       break;
     case 39:
       snake.clear();
       snake.moveRight();
-      snake.update();
+      updateGameArea();
       break;
     case 38:
       snake.clear();
       snake.moveUp();
-      snake.update();
+      updateGameArea();
       break;
     case 40:
       snake.clear();
       snake.moveDown();
-      snake.update();
+      updateGameArea();
       break;
   }
 };
@@ -75,6 +72,9 @@ button.addEventListener('click', () => {
 
 function startGame() {
   drawGameSpace();
-  snake = new Snake(20, 20, 10, 20);
+  snake = new Snake(30, 10, 10, 20);
   updateGameArea();
+  food = new Food();
+  bucket.push(food);
+  food.draw();
 }
