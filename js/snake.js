@@ -27,13 +27,13 @@ class Snake {
     this.x += this.speedX;
     this.y += this.speedY;
 
-    if (this.x > canvas. width) {
+    if (this.x > canvas.width) {
       this.x = 0;
     } else if (this.x < 0) {
       this.x = canvas.width;
     }
 
-    if (this.y > canvas. height) {
+    if (this.y > canvas.height) {
       this.y = 0;
     } else if (this.y < 0) {
       this.y = canvas.height;
@@ -67,5 +67,22 @@ class Snake {
       return true;
     }
     return false;
+  }
+
+  checkCrash() {
+    for (let i = 0; i < this.tail.length; i++) {
+      if (this.x === this.tail[i].x &&
+        this.y === this.tail[i].y) {
+        this.total = 0;
+        this.tail = [];
+        canvas.style.display = 'none';
+        gameScore.style.display = 'none';
+        stop.querySelector('span').innerText = score;
+        stop.style.display = 'block';
+        window.setTimeout(() => {
+          document.location.reload(true);
+        }, 4000);
+      }
+    }
   }
 }
