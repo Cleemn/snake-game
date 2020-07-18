@@ -1,36 +1,16 @@
-function chooseRandomPosition(min, max) {
-  return Math.round((Math.random()*(max-min)+min)/10)*10;
-}
-
-
 class Food {
-  constructor (x, y) {
-    this.width = 10;
-    this.height = 10;
-    this.color = 'red';
-    this.x = chooseRandomPosition(20, 680);
-    this.y = chooseRandomPosition(20, 680);
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  chooseRandomPosition() {
+    this.x = Math.round((Math.random() * (canvas.width / size) - 1) + 1) * size;
+    this.y = Math.round((Math.random() * (canvas.height / size) - 1) + 1) * size;
   }
 
   draw() {
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-  }
-
-  clear() {
-    ctx.clearRect(this.x, this.y, this.width, this.height);
-  }
-
-  left() {
-    return this.x;
-  }
-  right() {
-    return this.x + this.width;
-  }
-  top() {
-    return this.y;
-  }
-  bottom() {
-    return this.y + this.height;
+    ctx.fillStyle = 'red';
+    ctx.fillRect(this.x, this.y, size, size);
   }
 }

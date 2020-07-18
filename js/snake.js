@@ -1,57 +1,71 @@
 class Snake {
-  constructor (width, height, x, y) {
-    this.width = width;
-    this.height = height;
-    this.color = 'blue';
+  constructor (x, y) {
     this.x = x;
     this.y = y;
+    this.speedX = size * 1;
+    this.speedY = 0;
+    this.totalSize = 0;
+    this.tail = [];
+  }
+
+  draw() {
+    ctx.fillStyle = 'blue';
+
+    for (let i = 0; i < this.tail.length; i++) {
+      ctx.fillRect(this.tail[i].x, this.tail[i].y, size, size);
+    }
+    ctx.fillRect(this.x, this.y, size, size);
   }
 
   update() {
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    for (let i = 0; i < this.tail.length - 1; i++) {
+      this.tail[i] = this.tail[i + 1];
+    }
+
+    this.tail[this.totalSize - 1] = { x: this.x, y: this.y };
+
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    if (this.x > canvas. width) {
+      this.x = 0;
+    } else if (this.x < 0) {
+      this.x = canvas.width;
+    }
+
+    if (this.y > canvas. height) {
+      this.y = 0;
+    } else if (this.y < 0) {
+      this.y = canvas.height;
+    }
   }
 
-  clear() {
-    ctx.clearRect(this.x, this.y, this.width, this.height);
-  }
-
-  moveLeft() {
-    // TODO
-    this.x -= 10;
-  }
-  moveRight() {
-    // TODO
-    this.x += 10;
-  }
-
-  moveUp() {
-    this.y -= 10;
-  }
-
-  moveDown() {
-    this.y += 10;
-  }
-
-  left() {
-    return this.x;
-  }
-  right() {
-    return this.x + this.width;
-  }
-  top() {
-    return this.y;
-  }
-  bottom() {
-    return this.y + this.height;
+  changeDirection(direction) {
+    switch(direction) {
+      case 'Up':
+        this.speedX = 0;
+        this.speedY = -size * 1;
+        break;
+      case 'Down':
+        this.speedX = 0;
+        this.speedY = size * 1;
+        break;
+      case 'Left':
+        this.speedX = -size * 1;
+        this.speedY = 0;
+        break;
+      case 'Right':
+        this.speedX = size * 1;
+        this.speedY = 0;
+        break;
+    }
   }
 
   eat(food) {
-    return (
-      this.bottom() > food.top() &&
-      this.top() < food.bottom() &&
-      this.right() > food.left() &&
-      this.left() < food.right()
-    );
+    if (this.x === food.x && this.y === food.y) {
+      this.totalSize += 1;
+      return true;
+    }
+    return false;
   }
 }
