@@ -1,10 +1,17 @@
 const button = document.getElementById('start');
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
-const size = 10;
+const size = 40;
 let score = 0;
+let speed = 250;
 const gameScore = document.getElementById('score');
 const stop = document.querySelector(".stop");
+const img1 = document.createElement('img')
+img1.src = "./images/1.png";
+const img2 = document.createElement('img')
+img2.src = "./images/2.png";
+const img3 = document.createElement('img')
+img3.src = "./images/arcenciel.jpg";
 
 button.addEventListener('click', () => {
   startGame();
@@ -14,12 +21,20 @@ button.addEventListener('click', () => {
 });
 
 function startGame() {
-  snake = new Snake(20, 20);
+  snake = new Snake(size, size);
   food = new Food();
   obstacle = new Obstacle();
 
   food.chooseRandomPosition();
   obstacle.chooseRandomPosition();
+
+  if (score >= 100) {
+    speed = 200;
+  } else if (score >= 150) {
+    speed = 150;
+  } else if (score >= 200) {
+    speed = 100;
+  }
 
   window.setInterval(() => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -34,7 +49,7 @@ function startGame() {
       gameScore.querySelector('span').innerText = score;
     }
     snake.checkCrash();
-  }, 100);
+  }, speed);
 }
 
 document.addEventListener('keydown', (e) => {

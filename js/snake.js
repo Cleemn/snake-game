@@ -2,8 +2,8 @@ class Snake {
   constructor (x, y) {
     this.x = x;
     this.y = y;
-    this.speedX = size * 1;
-    this.speedY = 0;
+    this.moveX = size * 1;
+    this.moveY = 0;
     this.totalSize = 0;
     this.tail = [];
   }
@@ -12,9 +12,9 @@ class Snake {
     ctx.fillStyle = 'blue';
 
     for (let i = 0; i < this.tail.length; i++) {
-      ctx.fillRect(this.tail[i].x, this.tail[i].y, size, size);
+      ctx.drawImage(img2, this.tail[i].x, this.tail[i].y, size, size);
     }
-    ctx.fillRect(this.x, this.y, size, size);
+    ctx.drawImage(img1, this.x, this.y, size, size);
   }
 
   update() {
@@ -24,8 +24,8 @@ class Snake {
 
     this.tail[this.totalSize - 1] = { x: this.x, y: this.y };
 
-    this.x += this.speedX;
-    this.y += this.speedY;
+    this.x += this.moveX;
+    this.y += this.moveY;
 
     if (this.x > canvas.width) {
       this.x = 0;
@@ -43,20 +43,20 @@ class Snake {
   changeDirection(direction) {
     switch(direction) {
       case 'Up':
-        this.speedX = 0;
-        this.speedY = -size * 1;
+        this.moveX = 0;
+        this.moveY = -size * 1;
         break;
       case 'Down':
-        this.speedX = 0;
-        this.speedY = size * 1;
+        this.moveX = 0;
+        this.moveY = size * 1;
         break;
       case 'Left':
-        this.speedX = -size * 1;
-        this.speedY = 0;
+        this.moveX = -size * 1;
+        this.moveY = 0;
         break;
       case 'Right':
-        this.speedX = size * 1;
-        this.speedY = 0;
+        this.moveX = size * 1;
+        this.moveY = 0;
         break;
     }
   }
