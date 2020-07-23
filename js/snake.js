@@ -4,21 +4,16 @@ class Snake {
     this.y = y;
     this.moveX = size * 1;
     this.moveY = 0;
-    this.totalSize = 0;
+    this.totalSize = 1;
     this.tail = [];
   }
 
   draw() {
-    ctx.fillStyle = 'blue';
-
     for (let i = 0; i < this.tail.length; i++) {
-      if (this.tail.i === 0) {
-        ctx.drawImage(img2, this.tail[i].x, this.tail[i].y, size, size);
-      } else {
-        ctx.drawImage(img3, this.tail[i].x, this.tail[i].y, size, size);
-      }
+      ctx.drawImage(img2, this.tail[i].x, this.tail[i].y, size, size);
     }
     ctx.drawImage(img1, this.x, this.y, size, size);
+    ctx.drawImage(img3, this.tail[0].x, this.tail[0].y, size, size);
   }
 
   update() {
@@ -67,7 +62,10 @@ class Snake {
 
   eat(food) {
     if (this.x === food.x && this.y === food.y) {
-      this.totalSize += 1;
+      setTimeout(() => {
+        this.totalSize += 1;
+        grow.play();
+      }, 500);
       return true;
     }
     return false;
@@ -92,6 +90,7 @@ class Snake {
 
   checkObstacle() {
     if (this.x === obstacle.x && this.y === obstacle.y) {
+      dead.play();
       this.total = 0;
       this.tail = [];
       canvas.style.display = 'none';
