@@ -8,10 +8,14 @@ const gameScore = document.getElementById('score');
 const stop = document.querySelector(".stop");
 const img1 = document.createElement('img')
 img1.src = "./images/1.png";
-const img2 = document.createElement('img')
+const img2 = document.createElement('img');
 img2.src = "./images/2.png";
-const img3 = document.createElement('img')
-img3.src = "./images/arcenciel.jpg";
+const img3 = document.createElement('img');
+img3.src = "./images/2.png";
+const img4 = document.createElement('img');
+img4.src = "./images/arcenciel.png";
+const img5 = document.createElement('img');
+img5.src = "./images/poison.jpg";
 
 button.addEventListener('click', () => {
   startGame();
@@ -39,16 +43,18 @@ function startGame() {
   window.setInterval(() => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     food.draw();
+    obstacle.draw();
     snake.update();
     snake.draw();
 
     if (snake.eat(food)) {
       food.chooseRandomPosition();
       score += 10;
-      console.log(score);
+      obstacle.chooseRandomPosition();
       gameScore.querySelector('span').innerText = score;
     }
     snake.checkCrash();
+    snake.checkObstacle();
   }, speed);
 }
 

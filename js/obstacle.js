@@ -10,7 +10,6 @@ class Obstacle {
   }
 
   draw() {
-    ctx.fillStyle = 'black';
-    ctx.fillRect(this.x, this.y, size, size);
+    ctx.drawImage(img5, this.x, this.y, size, size);
   }
 }

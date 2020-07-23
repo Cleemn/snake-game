@@ -10,6 +10,6 @@ class Food {
   }
 
   draw() {
-    ctx.drawImage(img3, this.x, this.y, size, size);
+    ctx.drawImage(img4, this.x, this.y, size, size);
   }
 }

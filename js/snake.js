@@ -12,7 +12,11 @@ class Snake {
     ctx.fillStyle = 'blue';
 
     for (let i = 0; i < this.tail.length; i++) {
-      ctx.drawImage(img2, this.tail[i].x, this.tail[i].y, size, size);
+      if (this.tail.i === 0) {
+        ctx.drawImage(img2, this.tail[i].x, this.tail[i].y, size, size);
+      } else {
+        ctx.drawImage(img3, this.tail[i].x, this.tail[i].y, size, size);
+      }
     }
     ctx.drawImage(img1, this.x, this.y, size, size);
   }
@@ -83,6 +87,20 @@ class Snake {
           document.location.reload(true);
         }, 4000);
       }
+    }
+  }
+
+  checkObstacle() {
+    if (this.x === obstacle.x && this.y === obstacle.y) {
+      this.total = 0;
+      this.tail = [];
+      canvas.style.display = 'none';
+      gameScore.style.display = 'none';
+      stop.querySelector('span').innerText = score;
+      stop.style.display = 'block';
+      window.setTimeout(() => {
+        document.location.reload(true);
+      }, 4000);
     }
   }
 }
