@@ -3,7 +3,7 @@ const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 const size = 40;
 let score = 0;
-let speed = 250;
+let speed = 10;
 const gameScore = document.getElementById('score');
 const stop = document.querySelector(".stop");
 const img1 = document.createElement('img');
@@ -19,6 +19,8 @@ img5.src = "./images/poison.jpg";
 const eat = new Audio('./sounds/eat.m4a');
 // const grow = new Audio('./sounds/grow.m4a');
 const final = new Audio('./sounds/final.m4a');
+const fond = document.createElement('img');
+fond.src = "./images/fond.jpg";
 
 button.addEventListener('click', () => {
   startGame();
@@ -31,20 +33,13 @@ function startGame() {
   snake = new Snake(size, size);
   food = new Food();
   obstacle = new Obstacle();
-
+  
   food.chooseRandomPosition();
   obstacle.chooseRandomPosition();
-
-  if (score >= 100) {
-    speed = 200;
-  } else if (score >= 150) {
-    speed = 150;
-  } else if (score >= 200) {
-    speed = 100;
-  }
-
+  
   window.setInterval(() => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(fond, 0, 0, 600, 600);
     food.draw();
     obstacle.draw();
     snake.update();
@@ -52,14 +47,16 @@ function startGame() {
 
     if (snake.eat(food)) {
       eat.play();
+      speed += 10;
       food.chooseRandomPosition();
       score += 10;
       obstacle.chooseRandomPosition();
       gameScore.querySelector('span').innerText = score;
     }
+
     snake.checkCrash();
     snake.checkObstacle();
-  }, speed);
+  }, 200);
 }
 
 document.addEventListener('keydown', (e) => {
