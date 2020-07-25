@@ -5,6 +5,7 @@ const board = document.querySelector('#game-board');
 const gameScore = document.getElementById('score');
 const stop = document.querySelector(".stop");
 const ctx = canvas.getContext('2d');
+const dead_unicorn = document.querySelector('.dead-unicorn');
 
 const size = 40;
 let score = 0;
@@ -43,8 +44,6 @@ const img5 = document.createElement('img');
 img5.src = "./images/poison.png";
 const fond = document.createElement('img');
 fond.src = "./images/fond.jpg";
-const dead_unicorn = document.createElement('img');
-dead_unicorn.src = "./images/dead_unicorn.png";
 
 
 const eat = new Audio('./sounds/eat.m4a');

@@ -116,11 +116,15 @@ class Snake {
       this.tail = [];
       this.moveX = 100;
       this.moveY = 100;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      canvas.style.display = 'none';
-      gameScore.style.display = 'none';
-      stop.querySelector('span').innerText = score;
-      stop.style.display = 'block';
+      dead_unicorn.style.display = 'block';
+      window.setTimeout(() => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.style.display = 'none';
+        gameScore.style.display = 'none';
+        stop.querySelector('span').innerText = score;
+        stop.style.display = 'block';
+        dead_unicorn.style.display = 'none';
+      }, 2000);
       window.setTimeout(() => {
         document.location.reload(true);
       }, 15000);
