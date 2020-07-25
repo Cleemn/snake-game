@@ -56,7 +56,7 @@ function startGame() {
 
     snake.checkCrash();
     snake.checkObstacle();
-  }, 200);
+  }, 300);
 }
 
 document.addEventListener('keydown', (e) => {

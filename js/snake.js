@@ -9,7 +9,7 @@ class Snake {
   }
 
   draw() {
-    for (let i = 0; i < this.tail.length; i++) {
+    for (let i = 1; i < this.tail.length; i++) {
       ctx.drawImage(img2, this.tail[i].x, this.tail[i].y, size, size);
     }
     ctx.drawImage(img1, this.x, this.y, size, size);
@@ -62,10 +62,7 @@ class Snake {
 
   eat(food) {
     if (this.x === food.x && this.y === food.y) {
-      setTimeout(() => {
-        this.totalSize += 1;
-        // grow.play();
-      }, 500);
+      this.totalSize += 1;
       return true;
     }
     return false;
