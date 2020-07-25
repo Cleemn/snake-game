@@ -17,8 +17,8 @@ img4.src = "./images/arcenciel.png";
 const img5 = document.createElement('img');
 img5.src = "./images/poison.jpg";
 const eat = new Audio('./sounds/eat.m4a');
-const grow = new Audio('./sounds/grow.m4a');
-const dead = new Audio('./sounds/dead.m4a');
+// const grow = new Audio('./sounds/grow.m4a');
+const final = new Audio('./sounds/final.m4a');
 
 button.addEventListener('click', () => {
   startGame();

@@ -64,7 +64,7 @@ class Snake {
     if (this.x === food.x && this.y === food.y) {
       setTimeout(() => {
         this.totalSize += 1;
-        grow.play();
+        // grow.play();
       }, 500);
       return true;
     }
@@ -75,6 +75,7 @@ class Snake {
     for (let i = 0; i < this.tail.length; i++) {
       if (this.x === this.tail[i].x &&
         this.y === this.tail[i].y) {
+        final.play();
         this.total = 0;
         this.tail = [];
         canvas.style.display = 'none';
@@ -90,7 +91,7 @@ class Snake {
 
   checkObstacle() {
     if (this.x === obstacle.x && this.y === obstacle.y) {
-      dead.play();
+      final.play();
       this.total = 0;
       this.tail = [];
       canvas.style.display = 'none';
