@@ -10,10 +10,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; 
+  border-width: 30px 0;
+  border-image: url(../images/nuage.png) 600 0 600 0 repeat repeat;
+  max-width: 660px;
 }
 
 #canvas {
   margin: 0 auto;
+  border-width: 0 30px;
+  border-image: url(../images/nuage2.png) 0 1534 0 1538 repeat repeat;
 }
 
 #start {

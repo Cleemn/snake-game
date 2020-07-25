@@ -9,11 +9,31 @@ class Snake {
   }
 
   draw() {
-    for (let i = 1; i < this.tail.length; i++) {
-      ctx.drawImage(img2, this.tail[i].x, this.tail[i].y, size, size);
+    if (this.moveX === 0 && this.moveY <= 0) {
+      for (let i = 1; i < this.tail.length; i++) {
+        ctx.drawImage(img2_up, this.tail[i].x, this.tail[i].y, size, size);
+      }
+      ctx.drawImage(img1_up, this.x, this.y, size, size);
+      ctx.drawImage(img3_up, this.tail[0].x, this.tail[0].y, size, size);
+    } else if (this.moveX === 0 && this.moveY >= 0) {
+      for (let i = 1; i < this.tail.length; i++) {
+        ctx.drawImage(img2_down, this.tail[i].x, this.tail[i].y, size, size);
+      }
+      ctx.drawImage(img1_down, this.x, this.y, size, size);
+      ctx.drawImage(img3_down, this.tail[0].x, this.tail[0].y, size, size);
+    } else if (this.moveX <= 0 && this.moveY === 0) {
+      for (let i = 1; i < this.tail.length; i++) {
+        ctx.drawImage(img2_left, this.tail[i].x, this.tail[i].y, size, size);
+      }
+      ctx.drawImage(img1_left, this.x, this.y, size, size);
+      ctx.drawImage(img3_left, this.tail[0].x, this.tail[0].y, size, size);
+    } else if (this.moveX >= 0 && this.moveY === 0) {
+      for (let i = 1; i < this.tail.length; i++) {
+        ctx.drawImage(img2_right, this.tail[i].x, this.tail[i].y, size, size);
+      }
+      ctx.drawImage(img1_right, this.x, this.y, size, size);
+      ctx.drawImage(img3_right, this.tail[0].x, this.tail[0].y, size, size);
     }
-    ctx.drawImage(img1, this.x, this.y, size, size);
-    ctx.drawImage(img3, this.tail[0].x, this.tail[0].y, size, size);
   }
 
   update() {
