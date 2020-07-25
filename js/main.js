@@ -1,12 +1,14 @@
 const button = document.getElementById('start');
+const again = document.getElementById('again');
 const canvas = document.querySelector('canvas');
-const board = document.querySelector('#game-board')
+const board = document.querySelector('#game-board');
+const gameScore = document.getElementById('score');
+const stop = document.querySelector(".stop");
 const ctx = canvas.getContext('2d');
+
 const size = 40;
 let score = 0;
 let speed = 10;
-const gameScore = document.getElementById('score');
-const stop = document.querySelector(".stop");
 
 const img1_left = document.createElement('img');
 img1_left.src = "./images/1_left.png";
@@ -26,7 +28,6 @@ img2_left.src = "./images/2_left.png";
 const img2_right = document.createElement('img');
 img2_right.src = "./images/2_right.png";
 
-
 const img3_up = document.createElement('img');
 img3_up.src = "./images/3_up.png";
 const img3_down = document.createElement('img');
@@ -36,16 +37,20 @@ img3_left.src = "./images/3_left.png";
 const img3_right = document.createElement('img');
 img3_right.src = "./images/3_right.png";
 
-
 const img4 = document.createElement('img');
 img4.src = "./images/arcenciel.png";
 const img5 = document.createElement('img');
 img5.src = "./images/poison.png";
-const eat = new Audio('./sounds/eat.m4a');
-// const grow = new Audio('./sounds/grow.m4a');
-const final = new Audio('./sounds/final.m4a');
 const fond = document.createElement('img');
 fond.src = "./images/fond.jpg";
+const dead_unicorn = document.createElement('img');
+dead_unicorn.src = "./images/dead_unicorn.png";
+
+
+const eat = new Audio('./sounds/eat.m4a');
+const final = new Audio('./sounds/final.m4a');
+const dead = new Audio('./sounds/dead.m4a');
+const avada = new Audio('./sounds/avada.m4a');
 
 
 button.addEventListener('click', () => {

@@ -92,32 +92,38 @@ class Snake {
     for (let i = 0; i < this.tail.length; i++) {
       if (this.x === this.tail[i].x &&
         this.y === this.tail[i].y) {
-        final.play();
+        avada.play();
         this.total = 0;
         this.tail = [];
+        this.moveX = 100;
+        this.moveY = 100;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         canvas.style.display = 'none';
         gameScore.style.display = 'none';
         stop.querySelector('span').innerText = score;
         stop.style.display = 'block';
         window.setTimeout(() => {
           document.location.reload(true);
-        }, 4000);
+        }, 15000);
       }
     }
   }
 
   checkObstacle() {
     if (this.x === obstacle.x && this.y === obstacle.y) {
-      final.play();
+      avada.play();
       this.total = 0;
       this.tail = [];
+      this.moveX = 100;
+      this.moveY = 100;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       canvas.style.display = 'none';
       gameScore.style.display = 'none';
       stop.querySelector('span').innerText = score;
       stop.style.display = 'block';
       window.setTimeout(() => {
         document.location.reload(true);
-      }, 4000);
+      }, 15000);
     }
   }
 }
