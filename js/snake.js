@@ -95,8 +95,8 @@ class Snake {
         avada.play();
         this.total = 0;
         this.tail = [];
-        this.moveX = 100;
-        this.moveY = 100;
+        this.moveX = 400;
+        this.moveY = 400;
         window.setTimeout(() => {
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           canvas.style.display = 'none';
@@ -117,8 +117,8 @@ class Snake {
       avada.play();
       this.total = 0;
       this.tail = [];
-      this.moveX = 100;
-      this.moveY = 100;
+      this.moveX = 400;
+      this.moveY = 400;
       window.setTimeout(() => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         canvas.style.display = 'none';
