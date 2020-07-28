@@ -6,6 +6,7 @@ const gameScore = document.getElementById('score');
 const stop = document.querySelector(".stop");
 const ctx = canvas.getContext('2d');
 const dead_unicorn = document.querySelector('.dead-unicorn');
+const bienvenue = document.querySelector('.bienvenue');
 
 const size = 40;
 let score = 0;
@@ -56,6 +57,7 @@ button.addEventListener('click', () => {
   startGame();
   button.style.display = 'none';
   canvas.style.display = 'block';
+  bienvenue.style.display = 'none';
   canvas.style.borderStyle = 'solid';
   board.style.borderStyle = 'solid';
   gameScore.style.display = 'block';
