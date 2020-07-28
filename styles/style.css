@@ -1,5 +1,7 @@
 body {
   font-family: 'Roboto', sans-serif;
+  background-image: url('../images/background.jpg');
+  background-size: cover;
 }
 
 .container {
@@ -9,6 +11,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center; 
+}
+
+.bienvenue {
+  width: 400px;
+  position: relative;
+  left: 400px;
+  top: 150px;
+  text-align: justify;
+  color: #DEDBED;
 }
 
 #game-board {
@@ -36,15 +47,16 @@ body {
   letter-spacing: 2.5px;
   font-weight: 500;
   color: #000;
-  background-color: #fff;
+  background-color: #DEDBED;
   border: none;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
-  cursor: pointer;
   outline: none;
-  margin: 200px auto;
-  }
+  position: relative;
+  left: 400px;
+  top: 500px;
+}
 
 #start:hover {
   background-color: pink;
@@ -60,6 +72,45 @@ body {
     align-items: center;
 }
 
+.stop > p, h1 {
+  position: relative;
+  top: 90px;
+  left: 530px;
+  color: #DEDBED;
+  font-family: Verdana;
+}
+
 .dead-unicorn {
   display: none;
+}
+
+/* .start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1000px;
+} */
+
+.card {
+  position: relative;
+  left: 320px;
+  top: 185px;
+  background-color: #DEDBED;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 5px rgba(112,112,112,0.62);
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.card > p {
+  text-align: justify;
+}
+
+.firenze {
+  margin-top: 24px;
+  box-shadow: 5px 5px 15px 5px rgba(112,112,112,0.62);
 }

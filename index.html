@@ -7,9 +7,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="start">
       <button id="start">Start</button>
-      <p id="score" style="display: none;">Score : <span></span></p>
       <p class="bienvenue">Bienvenue cher visiteur. 
         Aujourd'hui j'ai une mission spéciale pour toi. 
         Je te confie ma licorne. 
@@ -18,26 +16,33 @@
         ma licorne ne mange que des arc-en-ciels et se déplace de haut en bas et de droite à gauche. 
         Utilise les flèches de ton clavier pour la faire bouger. 
         Des flacons de poison vont croiser ton chemin, évite-les à tous prix. 
-        Bonne chance !</p>
-    </div>
+        Bonne chance !
+      </p>
+      <p id="score" style="display: none;">Score : <span></span></p>
 
     <img src="images/dead-unicorn.jpg" alt="" style="display: none;" class="dead-unicorn">
 
     <div class="stop" style="display: none;">
       <h1>Game Over</h1>
       <p>Your final score : <span></span></p>
-      <img src="images/firenze.jpg" alt="">
-      <p><i>Tuer une licorne est une chose monstrueuse. 
-        Pour commettre un tel crime il faut n'avoir rien à perdre et tout à gagner. 
-        Le sang de licorne permet de survivre, même si on est sur le point de mourir, mais à un prix terrible. 
-        Car il faut tuer un être pur et sans défense pour sauver sa propre vie. 
-        Et dès l'instant où les lèvres touchent le sang, ce n'est plus qu'une demi-vie, une vie maudite.</i></p>
+      <div class="card">
+        <img src="images/firenze.jpg" alt="" class="firenze">
+        <p>
+          <i>
+            "Tuer une licorne est une chose monstrueuse. 
+          Pour commettre un tel crime il faut n'avoir rien à perdre et tout à gagner. 
+          Le sang de licorne permet de survivre, même si on est sur le point de mourir, mais à un prix terrible. 
+          Car il faut tuer un être pur et sans défense pour sauver sa propre vie. 
+          Et dès l'instant où les lèvres touchent le sang, ce n'est plus qu'une demi-vie, une vie maudite."
+          </i>
+        </p>
+      </div>
         <div class="start">
           <p id="score" style="display: none;">Score : <span></span></p>
         </div>
     </div>
     <div id="game-board">
-      <canvas id="canvas" width="600" height="600"></canvas>
+      <canvas id="canvas" width="600" height="600" style="display: none;"></canvas>
     </div>
   </div>
 
