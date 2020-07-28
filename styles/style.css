@@ -14,13 +14,16 @@ body {
   max-height: 690px;
 }
 
-.bienvenue {
+#typed {
+  color: #DEDBED;
   width: 400px;
   position: relative;
   left: 400px;
   top: 150px;
+}
+
+.bienvenue {
   text-align: justify;
-  color: #DEDBED;
 }
 
 #game-board {

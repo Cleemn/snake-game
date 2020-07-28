@@ -6,7 +6,7 @@ const gameScore = document.querySelector('.score');
 const stop = document.querySelector(".stop");
 const ctx = canvas.getContext('2d');
 const dead_unicorn = document.querySelector('.dead-unicorn');
-const bienvenue = document.querySelector('.bienvenue');
+const bienvenue = document.querySelector('#typed');
 
 const size = 40;
 let score = 0;
@@ -51,7 +51,14 @@ const eat = new Audio('./sounds/eat.m4a');
 const final = new Audio('./sounds/final.m4a');
 const dead = new Audio('./sounds/dead.m4a');
 const avada = new Audio('./sounds/avada.m4a');
+const music = new Audio('./sounds/music.m4a');
 
+  var typed = new Typed('#typed', {
+    stringsElement: '#typed-strings',
+    typeSpeed: 20,
+    fadeOut: true,
+    showCursor: false
+  });
 
 button.addEventListener('click', () => {
   startGame();
@@ -97,3 +104,7 @@ document.addEventListener('keydown', (e) => {
   const direction = e.key.replace('Arrow', '');
   snake.changeDirection(direction);
 });
+
+window.addEventListener('mousemove', () => {
+  music.play();
+})

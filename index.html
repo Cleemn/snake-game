@@ -4,20 +4,24 @@
   <meta charset="UTF-8">
   <title>Snake Game 🐍</title>
   <link rel="stylesheet" href="styles/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 </head>
 <body>
   <div class="container">
       <button id="start">Start</button>
-      <p class="bienvenue">Bienvenue cher visiteur. 
-        Aujourd'hui j'ai une mission spéciale pour toi. 
-        Je te confie ma licorne. 
-        Attention, la vie d'une licorne est précieuse, ne fait pas n'importe quoi. 
-        Pour t'aider à la garder en vie, voici quelques indications : 
-        ma licorne ne mange que des arc-en-ciels et se déplace de haut en bas et de droite à gauche. 
-        Utilise les flèches de ton clavier pour la faire bouger. 
-        Des flacons de poison vont croiser ton chemin, évite-les à tous prix. 
-        Bonne chance !
-      </p>
+      <div id="typed-strings">
+        <p class="bienvenue">Bienvenue cher visiteur. 
+          Aujourd'hui j'ai une mission spéciale pour toi. 
+          Je te confie ma licorne. 
+          Attention, la vie d'une licorne est précieuse, ne fait pas n'importe quoi. 
+          Pour t'aider à la garder en vie, voici quelques indications : 
+          ma licorne ne mange que des arc-en-ciels et se déplace de haut en bas et de droite à gauche. 
+          Utilise les flèches de ton clavier pour la faire bouger. 
+          Des flacons de poison vont croiser ton chemin, évite-les à tous prix. 
+          Bonne chance !
+        </p>
+      </div>
+      <span id="typed"></span>
       <div class="score" style="display: none;">
         <p id="score">Score : <span></span></p>
       </div>
