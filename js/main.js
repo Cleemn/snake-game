@@ -85,8 +85,12 @@ function animLoop() {
   if (score === 50) {
     fps = 4;
   } else if (score === 100) {
-    fps = 8;
+    fps = 6;
   } else if (score >= 150) {
+    fps = 8;
+  } else if (score >= 200) {
+    fps = 10;
+  } else if (score >= 250) {
     fps = 12;
   }
   
