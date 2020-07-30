@@ -106,13 +106,18 @@ class Snake {
   gameOver() {
     avada.play();
     window.setTimeout(() => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dead_unicorn.style.display = 'block';
       canvas.style.display = 'none';
       gameScore.style.display = 'none';
+    }, 2000);
+    window.setTimeout(() => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      board.style.display = 'none';
       stop.querySelector('span').innerText = score;
       stop.style.display = 'block';
       dead_unicorn.style.display = 'none';
-    }, 2000);
+      stop.style.cursor = 'wait';
+    }, 4000);
     window.setTimeout(() => {
       document.location.reload(true);
     }, 15000);

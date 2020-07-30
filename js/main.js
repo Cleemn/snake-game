@@ -53,12 +53,13 @@ const dead = new Audio('./sounds/dead.m4a');
 const avada = new Audio('./sounds/avada.m4a');
 const music = new Audio('./sounds/music.m4a');
 
-  var typed = new Typed('#typed', {
-    stringsElement: '#typed-strings',
-    typeSpeed: 20,
-    fadeOut: true,
-    showCursor: false
-  });
+var typed = new Typed('#typed', {
+  stringsElement: '#typed-strings',
+  typeSpeed: 20,
+  fadeOut: true,
+  showCursor: false
+});
+  
 
 button.addEventListener('click', () => {
   startGame();
