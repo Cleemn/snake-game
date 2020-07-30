@@ -20,6 +20,16 @@ body {
   position: relative;
   left: 400px;
   top: 150px;
+  background-image: url('../images/rainbow.jpg');
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: rainbow 5s linear infinite;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes rainbow {
+  0% {background-position: 0% -50%;}
+  0% {background-position: 100% -50%;}
 }
 
 .bienvenue {
@@ -80,7 +90,11 @@ body {
   top: 90px;
   left: 530px;
   color: #DEDBED;
-  font-family: Verdana;
+  background-image: url('../images/rainbow.jpg');
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: rainbow 5s linear infinite;
+  -webkit-backface-visibility: hidden;
 }
 
 .dead-unicorn {
@@ -98,7 +112,6 @@ body {
   position: relative;
   left: 240px;
   top: 95px;
-  background-color: #DEDBED;
   border-radius: 5px;
   box-shadow: 5px 5px 15px 5px rgba(112,112,112,0.62);
   width: 650px;
@@ -111,6 +124,15 @@ body {
 
 .card > p {
   text-align: justify;
+}
+
+.card > p > i > span {
+  font-family: 'Nosifer', cursive;
+  background-image: url('../images/blood.jpg');
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: rainbow 5s linear infinite;
+  -webkit-backface-visibility: hidden;
 }
 
 .firenze {
