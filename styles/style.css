@@ -87,7 +87,7 @@ body {
 
 .stop > p, h1 {
   position: relative;
-  top: 90px;
+  top: 50px;
   left: 530px;
   color: #DEDBED;
   background-image: url('../images/rainbow.jpg');
@@ -111,8 +111,9 @@ body {
 .card {
   position: relative;
   left: 240px;
-  top: 95px;
+  top: 55px;
   border-radius: 5px;
+  background-color: #DEDBED;
   box-shadow: 5px 5px 15px 5px rgba(112,112,112,0.62);
   width: 650px;
   display: flex;
