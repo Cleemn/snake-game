@@ -68,6 +68,7 @@ button.addEventListener('click', () => {
   canvas.style.borderStyle = 'solid';
   board.style.borderStyle = 'solid';
   gameScore.style.display = 'block';
+  music.play();
 });
 
 function startGame() {
@@ -104,7 +105,3 @@ document.addEventListener('keydown', (e) => {
   const direction = e.key.replace('Arrow', '');
   snake.changeDirection(direction);
 });
-
-window.addEventListener('mousemove', () => {
-  music.play();
-})
