@@ -71,6 +71,32 @@ button.addEventListener('click', () => {
   music.play();
 });
 
+
+let frames = 0;
+let raf;
+let gameover;
+let fps = 3;
+
+function animLoop() {
+  frames ++;
+  draw();
+
+  if (score === 50) {
+    fps = 4;
+  } else if (score === 100) {
+    fps = 8;
+  } else if (score >= 150) {
+    fps = 12;
+  }
+  
+  if (!gameover) {
+    raf = setTimeout(() => {
+      requestAnimationFrame(animLoop);
+    }, 1000/fps);
+  }
+}
+
+
 function startGame() {
   snake = new Snake(size, size);
   food = new Food();
@@ -78,27 +104,40 @@ function startGame() {
   
   food.chooseRandomPosition();
   obstacle.chooseRandomPosition();
-  
-  window.setInterval(() => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(fond, 0, 0, 600, 600);
-    food.draw();
-    obstacle.draw();
-    snake.update();
-    snake.draw();
 
-    if (snake.eat(food)) {
-      eat.play();
-      speed += 10;
-      food.chooseRandomPosition();
-      score += 10;
-      obstacle.chooseRandomPosition();
-      gameScore.querySelector('span').innerText = score;
-    }
+  if (raf) {
+    cancelAnimationFrame(raf);
+  }
+  gameover = false;
+  animLoop();
+}
 
-    snake.checkCrash();
-    snake.checkObstacle();
-  }, 300);
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(fond, 0, 0, 600, 600);
+  food.draw();
+  obstacle.draw();
+  snake.update();
+  snake.draw();
+
+  if (snake.eat(food)) {
+    eat.play();
+    speed += 10;
+    food.chooseRandomPosition();
+    score += 10;
+    obstacle.chooseRandomPosition();
+    gameScore.querySelector('span').innerText = score;
+  }
+
+  if (snake.checkObstacle()) {
+    gameover = true;
+    snake.gameOver();
+  }
+
+  if (snake.checkCrash()) {
+    gameover = true;
+    snake.gameOver();
+  }
 }
 
 document.addEventListener('keydown', (e) => {

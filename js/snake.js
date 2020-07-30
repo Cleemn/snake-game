@@ -92,44 +92,29 @@ class Snake {
     for (let i = 0; i < this.tail.length; i++) {
       if (this.x === this.tail[i].x &&
         this.y === this.tail[i].y) {
-        avada.play();
-        this.total = 0;
-        this.tail = [];
-        this.moveX = 100;
-        this.moveY = 100;
-        window.setTimeout(() => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          canvas.style.display = 'none';
-          gameScore.style.display = 'none';
-          stop.querySelector('span').innerText = score;
-          stop.style.display = 'block';
-          dead_unicorn.style.display = 'none';
-        }, 2000);
-        window.setTimeout(() => {
-          document.location.reload(true);
-        }, 15000);
+          return true;
       }
     }
   }
 
   checkObstacle() {
     if (this.x === obstacle.x && this.y === obstacle.y) {
-      avada.play();
-      this.total = 0;
-      this.tail = [];
-      this.moveX = 100;
-      this.moveY = 100;
-      window.setTimeout(() => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        canvas.style.display = 'none';
-        gameScore.style.display = 'none';
-        stop.querySelector('span').innerText = score;
-        stop.style.display = 'block';
-        dead_unicorn.style.display = 'none';
-      }, 2000);
-      window.setTimeout(() => {
-        document.location.reload(true);
-      }, 15000);
+      return true;
     }
+  }
+
+  gameOver() {
+    avada.play();
+    window.setTimeout(() => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      canvas.style.display = 'none';
+      gameScore.style.display = 'none';
+      stop.querySelector('span').innerText = score;
+      stop.style.display = 'block';
+      dead_unicorn.style.display = 'none';
+    }, 2000);
+    window.setTimeout(() => {
+      document.location.reload(true);
+    }, 15000);
   }
 }
