@@ -118,8 +118,8 @@ class Snake {
       dead_unicorn.style.display = 'none';
       stop.style.cursor = 'wait';
     }, 4000);
-    // window.setTimeout(() => {
-    //   document.location.reload(true);
-    // }, 15000);
+    window.setTimeout(() => {
+      document.location.reload(true);
+    }, 15000);
   }
 }
