@@ -120,6 +120,6 @@ class Snake {
     }, 4000);
     window.setTimeout(() => {
       document.location.reload(true);
-    }, 15000);
+    }, 20000);
   }
 }
